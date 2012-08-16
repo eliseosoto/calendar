@@ -1,6 +1,41 @@
-.calendarContainer {
+body {
+    font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+    direction: ltr;
+}
+
+.calendarDay {
+    display: inline-block;
     border: 1px solid #8a2be2;
     width: 620px;
     height: 720px;
     position: relative;
+    background-color: #ececec;
+}
+
+.timeline {
+    display: inline-block;
+    border: 1px solid red;
+}
+
+.hour {
+    display: block;
+    height: 30px;
+
+}
+
+.halfHour {
+    display: block;
+    height: 30px;
+}
+
+.amPm {
+    font-size: 0.5em;
+}
+
+.event {
+    border: 1px solid #d6d6d6;
+    background-color: #ffffff;
+    border-left: 5px solid #4b6ea8;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }

@@ -8,9 +8,9 @@
     var createEventDiv = function(event) {
         // Create div
         var div = document.createElement('div');
+        div.className = 'event';
         div.style.width = event.width + 'px';
         div.style.height = (event.end - event.start) + 'px';
-        div.style.border = '1px solid';
         div.style.position = 'absolute'; // The container div must be 'relative'
         div.style.top = event.top + 'px';
         div.style.left = event.left + 'px';
@@ -23,8 +23,38 @@
         return div;
     };
 
+    var createTimeline = function() {
+      var timeline = document.getElementById("timeline");
+
+        var fragment = document.createDocumentFragment();
+
+        for(var i = 9; i <= 21; i += 0.5) {
+            var span = document.createElement('span');
+            span.className = (i % 1 === 0) ? 'hour' : 'halfHour';
+            span.appendChild(timeToText(i));
+            fragment.appendChild(span);
+        }
+
+        timeline.appendChild(fragment);
+    };
+
+    var timeToText = function(time) {
+        var timeFragment = document.createDocumentFragment();
+        var hour = Math.floor((time >= 13) ? time - 12 : time);
+        var minutes = time % 1 === 0 ? ":00" : ":30"
+        var textNode = document.createTextNode(hour + minutes + ' ');
+        var amPm = document.createElement('span');
+        amPm.className = 'amPm';
+        amPm.textContent = time >= 12 ? "PM": "AM";
+        timeFragment.appendChild(textNode);
+        if(time % 1 === 0) {
+            timeFragment.appendChild(amPm);
+        }
+        return timeFragment;
+    }
+
     var render = function() {
-        var calendarContainer = document.getElementById('calendarContainer');
+        var calendarContainer = document.getElementById('calendarDay');
 
         //show handle 3 events in 2 columns
 //        var eventsSample = [
@@ -69,10 +99,14 @@
 
         eventsSample = Calendar.layOutDay(eventsSample);
 
+        var eventsFragment = document.createDocumentFragment();
         eventsSample.forEach(function(event) {
             var div = createEventDiv(event);
-            calendarContainer.appendChild(div);
+            eventsFragment.appendChild(div);
         });
+        calendarContainer.appendChild(eventsFragment);
+
+        createTimeline();
     };
 
     window.addEventListener('load', windowLoadHandler, false);
