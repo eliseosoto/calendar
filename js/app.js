@@ -9,6 +9,7 @@
         div.style.height = (event.end - event.start) + 'px';
         div.style.top = event.top + 'px';
         div.style.left = event.left + 'px';
+        div.style['z-index'] = event.left;
 
         var eventTitle = document.createElement('div');
         eventTitle.className = 'eventTitle';
