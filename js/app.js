@@ -15,11 +15,17 @@
         div.style.top = event.top + 'px';
         div.style.left = event.left + 'px';
 
-        var span = document.createElement('span');
+        var eventTitle = document.createElement('div');
+        eventTitle.className = 'eventTitle';
         //div.textContent = event.id + "@" + event.start + ", " + event.end + " - w:" + event.width + " -l:" + event.left;
-        div.textContent = "Sample Item"
+        eventTitle.textContent = "Sample Item"
 
-        div.appendChild(span);
+        var eventLocation = document.createElement('div');
+        eventLocation.className = 'eventLocation';
+        eventLocation.textContent = "Sample Location";
+
+        div.appendChild(eventTitle);
+        div.appendChild(eventLocation);
 
         return div;
     };
