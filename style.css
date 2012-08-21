@@ -5,7 +5,7 @@ body {
 
 .calendarDay {
     display: inline-block;
-    border: 1px solid #8a2be2;
+    border: 0px solid #8a2be2;
     width: 620px;
     height: 720px;
     position: relative;
@@ -13,23 +13,30 @@ body {
 }
 
 .timeline {
+    font-family: 'Tahoma';
+    text-align: right;
+    font-size: 0.9em;
+    color: gray;
     display: inline-block;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .hour {
+    font-weight: bold;
     display: block;
     height: 30px;
 
 }
 
 .halfHour {
+    font-size: 0.8em;
     display: block;
     height: 30px;
 }
 
 .amPm {
     font-size: 0.5em;
+    font-weight: normal;
 }
 
 .event {

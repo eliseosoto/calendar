@@ -16,7 +16,8 @@
         div.style.left = event.left + 'px';
 
         var span = document.createElement('span');
-        div.textContent = event.id + "@" + event.start + ", " + event.end + " - w:" + event.width + " -l:" + event.left;
+        //div.textContent = event.id + "@" + event.start + ", " + event.end + " - w:" + event.width + " -l:" + event.left;
+        div.textContent = "Sample Item"
 
         div.appendChild(span);
 
