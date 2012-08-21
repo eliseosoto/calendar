@@ -3,6 +3,8 @@
 var Calendar = {
     DAY_WIDTH: 600,
 
+    PADDING: 10,
+
     /**
      * Compares two events and the event that starts first is place before the other.
      * @param evtA
@@ -94,7 +96,7 @@ var Calendar = {
 
                 event.top = event.start;
                 event.width = Math.max(eventWidth, 1) * colWidth;
-                event.left = posI * colWidth; // + padding;
+                event.left = posI * colWidth + this.PADDING;
             }
         }
 

@@ -38,7 +38,7 @@ describe("Calendar", function() {
             var response = calendar.layOutDay(event);
 
             expect(response).toEqual([
-                {id: 1, start: 60, end: 120, width: 600, left: 0, top: 60}
+                {id: 1, start: 60, end: 120, width: 600, left: 10, top: 60}
             ]);
         });
 
@@ -49,8 +49,8 @@ describe("Calendar", function() {
             ];
 
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 100, end: 120, width: 300, left: 0, top: 100},
-                {id: 2, start: 100, end: 240, width: 300, left: 300, top: 100}
+                {id: 1, start: 100, end: 120, width: 300, left: 10, top: 100},
+                {id: 2, start: 100, end: 240, width: 300, left: 310, top: 100}
             ]);
         });
 
@@ -61,8 +61,8 @@ describe("Calendar", function() {
             ];
 
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 60, end: 120, width: 300, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 300, left: 300, top: 100}
+                {id: 1, start: 60, end: 120, width: 300, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 300, left: 310, top: 100}
             ]);
         });
 
@@ -73,8 +73,8 @@ describe("Calendar", function() {
             ];
 
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 60, end: 700, width: 300, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 300, left: 300, top: 100}
+                {id: 1, start: 60, end: 700, width: 300, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 300, left: 310, top: 100}
             ]);
         });
 
@@ -86,9 +86,9 @@ describe("Calendar", function() {
             ];
 
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 0, start: 60, end: 120, width: 300, left: 0, top: 60},
-                {id: 1, start: 100, end: 240, width: 300, left: 300, top: 100},
-                {id: 2, start: 200, end: 240, width: 300, left: 0, top: 200}
+                {id: 0, start: 60, end: 120, width: 300, left: 10, top: 60},
+                {id: 1, start: 100, end: 240, width: 300, left: 310, top: 100},
+                {id: 2, start: 200, end: 240, width: 300, left: 10, top: 200}
             ]);
         });
 
@@ -100,9 +100,9 @@ describe("Calendar", function() {
             ];
 
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 60, end: 120, width: 300, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 300, left: 300, top: 100},
-                {id: 3, start: 200, end: 300, width: 300, left: 0, top: 200}
+                {id: 1, start: 60, end: 120, width: 300, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 300, left: 310, top: 100},
+                {id: 3, start: 200, end: 300, width: 300, left: 10, top: 200}
             ]);
         });
 
@@ -114,48 +114,48 @@ describe("Calendar", function() {
                 {id: 4, start: 250, end: 600}
             ];
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 60, end: 180, width: 200, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 200, left: 200, top: 100},
-                {id: 3, start: 150, end: 400, width: 200, left: 400, top: 150},
-                {id: 4, start: 250, end: 600, width: 400, left: 0, top: 250}
+                {id: 1, start: 60, end: 180, width: 200, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 200, left: 210, top: 100},
+                {id: 3, start: 150, end: 400, width: 200, left: 410, top: 150},
+                {id: 4, start: 250, end: 600, width: 400, left: 10, top: 250}
             ]);
         });
 
         it("should handle multiple collisions", function() {
             var events = [
-                {id: 1, start: 60, end: 180, width: 200, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 200, left: 200, top: 100},
-                {id: 3, start: 150, end: 400, width: 200, left: 400, top: 150},
-                {id: 4, start: 185, end: 230, width: 200, left: 0, top: 185},
-                {id: 5, start: 250, end: 600, width: 400, left: 0, top: 250}
+                {id: 1, start: 60, end: 180},
+                {id: 2, start: 100, end: 240},
+                {id: 3, start: 150, end: 400},
+                {id: 4, start: 185, end: 230},
+                {id: 5, start: 250, end: 600}
             ];
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 1, start: 60, end: 180, width: 200, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 200, left: 200, top: 100},
-                {id: 3, start: 150, end: 400, width: 200, left: 400, top: 150},
-                {id: 4, start: 185, end: 230, width: 200, left: 0, top: 185},
-                {id: 5, start: 250, end: 600, width: 400, left: 0, top: 250}
+                {id: 1, start: 60, end: 180, width: 200, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 200, left: 210, top: 100},
+                {id: 3, start: 150, end: 400, width: 200, left: 410, top: 150},
+                {id: 4, start: 185, end: 230, width: 200, left: 10, top: 185},
+                {id: 5, start: 250, end: 600, width: 400, left: 10, top: 250}
             ]);
         });
 
         it("should pass mega test", function() {
             var events = [
-                {id: 4, start: 110, end: 200, width: 300, left: 150, top: 110},
-                {id: 2, start: 25, end: 100, width: 150, left: 300, top: 25},
-                {id: 0, start: 10, end: 550, width: 150, left: 0, top: 10},
-                {id: 5, start: 260, end: 300, width: 450, left: 150, top: 260},
-                {id: 6, start: 600, end: 700, width: 600, left: 0, top: 600},
-                {id: 3, start: 35, end: 250, width: 150, left: 450, top: 35},
-                {id: 1, start: 20, end: 100, width: 150, left: 150, top: 20}
+                {id: 4, start: 110, end: 200},
+                {id: 2, start: 25, end: 100},
+                {id: 0, start: 10, end: 550},
+                {id: 5, start: 260, end: 300},
+                {id: 6, start: 600, end: 700},
+                {id: 3, start: 35, end: 250},
+                {id: 1, start: 20, end: 100}
             ];
             expect(calendar.layOutDay(events)).toEqual([
-                {id: 0, start: 10, end: 550, width: 150, left: 0, top: 10},
-                {id: 1, start: 20, end: 100, width: 150, left: 150, top: 20},
-                {id: 2, start: 25, end: 100, width: 150, left: 300, top: 25},
-                {id: 3, start: 35, end: 250, width: 150, left: 450, top: 35},
-                {id: 4, start: 110, end: 200, width: 300, left: 150, top: 110},
-                {id: 5, start: 260, end: 300, width: 450, left: 150, top: 260},
-                {id: 6, start: 600, end: 700, width: 600, left: 0, top: 600}
+                {id: 0, start: 10, end: 550, width: 150, left: 10, top: 10},
+                {id: 1, start: 20, end: 100, width: 150, left: 160, top: 20},
+                {id: 2, start: 25, end: 100, width: 150, left: 310, top: 25},
+                {id: 3, start: 35, end: 250, width: 150, left: 460, top: 35},
+                {id: 4, start: 110, end: 200, width: 300, left: 160, top: 110},
+                {id: 5, start: 260, end: 300, width: 450, left: 160, top: 260},
+                {id: 6, start: 600, end: 700, width: 600, left: 10, top: 600}
             ]);
         });
 
@@ -169,9 +169,9 @@ describe("Calendar", function() {
             var response = calendar.layOutDay(events);
 
             expect(response).toEqual([
-                {id: 1, start: 60, end: 120, width: 300, left: 0, top: 60},
-                {id: 2, start: 100, end: 240, width: 300, left: 300, top: 100},
-                {id: 3, start: 700, end: 720, width: 600, left: 0, top: 700}
+                {id: 1, start: 60, end: 120, width: 300, left: 10, top: 60},
+                {id: 2, start: 100, end: 240, width: 300, left: 310, top: 100},
+                {id: 3, start: 700, end: 720, width: 600, left: 10, top: 700}
             ]);
         });
     });
